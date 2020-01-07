@@ -1,39 +1,63 @@
 .ba-header {
     background-color: $primaryColor;
+    padding-top: 40px;
+
+    &-top {
+        display: flex;
+        align-items: center;
+        margin-bottom: 1rem;
+        padding: 0 1rem;
+
+        .ba-notification-wrapper {
+            margin-left: auto;
+            margin-right: 2rem;
+            color: #fff;
+        }
+
+        @media screen and (min-width: 991px) {
+            margin-bottom: 50px;
+        }
+    }
 }
 
 .ba-logo {
-    display: block;
+    display: inline-block;
     color: $yellow;
     font-weight: 800;
-    font-size: 1.75rem;
+    font-size: 1.5rem;
     text-decoration: none;
-    margin-bottom: 1rem;
 
-    @media screen and (min-width: 991px) {
-        margin-bottom: 50px;
+    @media screen and (min-width: 450px) {
+        font-size: 1.75rem;
     }
 }
 
 .ba-menu {
-    display: flex;
+    display: none;
     flex-direction: column;
     list-style: none;
     color: #fff;
     margin: 0;
     padding: 0;
 
-    &__item{
-        
+    &.open {
+        display: flex;
+    }
+
+    &__item-user{ 
+        padding: 1rem;
     }
 
     &__link{
         position: relative;
         display: block;
-        padding: 1rem;
+        padding: 1rem 1rem 1rem 70px;
         color: inherit;
         text-decoration: none;
         font-size: 1.125rem;
+        font-weight: 300;
+        text-transform: capitalize;
+
         &:after {
             content:'';
             position: absolute;
@@ -45,11 +69,32 @@
             right: 1rem;
         }
 
+        .fas {
+            position: absolute;
+            left: 1rem;
+            top:50%;
+            transform: translateY(-50%);
+            font-size: 23px;
+        }
+
         &.active {
             background-color: #442a9d;
+            border-left: 5px solid $yellow;
         }
         &:hover, &:focus{
             background-color: lighten(#442a9d, 10);
         }
+    }
+
+    &-btn {
+        color: #fff;
+
+        @media screen and (min-width: 991px) {
+            display: none;
+        }
+    }
+
+    @media screen and (min-width: 991px) {
+        display: flex;
     }
 }
